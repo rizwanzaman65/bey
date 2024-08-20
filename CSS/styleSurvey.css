@@ -1,0 +1,311 @@
+#grEmbed {
+  min-width: 100%;
+  border: 0;
+  min-width: 100%;
+  border-radius: .5rem;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+ul, ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+  color: #858585;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+ul li, ol li {
+  font-size: 17px;
+  line-height: 30px;
+}
+
+ul li i {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #7c8595;
+  margin-bottom: 15px;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif !important;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2F362F;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 26px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+iframe {
+  max-width: 100%;
+  border: none;
+}
+
+.section-grey {
+  background: #f7f8fa;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+/* ========================================================== */
+/* 			               02. MENU-NAV                       */
+/* ========================================================== */
+
+.navbar {
+  padding-top: 0px;
+}
+
+.navbar-fixed-top {
+  position: absolute !important;
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  border-bottom: none;
+  transition: background-color 0.25s ease 0s;
+  margin-top: 20px;
+}
+
+/* ========================================================== */
+/* 			                03. FOOTER                        */
+/* ========================================================== */
+
+.footer {
+  z-index: 900;
+  background-color: #2f3539;
+  border-top: 1px solid #393f43;
+  padding: 50px 0;
+  font-weight: 300;
+}
+
+.footer p {
+  font-size: 16px;
+  color: #cecece;
+}
+
+/* ========================================================== */
+/* 			               04. HOME                           */
+/* ========================================================== */
+
+.banner {
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  width: 100%;
+  /* padding-top: 180px;
+  padding-bottom: 150px; */
+}
+
+.main-content {
+  padding-top: 210px;
+  padding-bottom: 150px;
+}
+
+.banner h1 {
+  line-height: 54px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+
+}
+
+.banner p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #fff;
+
+}
+
+
+/* ========================================================== */
+/* 			               07. SERVICES/FEATURES              */
+/* ========================================================== */
+
+.main-services {
+  margin-top: 40px;
+  padding: 50px 30px 30px 30px;
+  background-color: #fff;
+  box-shadow: rgba(33, 33, 33, .06) 0 4px 24px 5px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 1s;
+}
+
+.main-services:hover {
+  margin-top: 25px;
+  transition: all 1s;
+}
+
+.main-services img {
+  max-width: 230px;
+  margin-bottom: 25px;
+}
+
+.main-services h3 {
+  font-size: 22px;
+  color: #292929;
+  margin-bottom: 15px;
+}
+
+.main-services p {
+  padding: 0 10px;
+}
+
+.panel-wrapper {
+  margin-bottom: 25px;
+}
+
+.panel-icon {
+  margin-right: 5px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 34px;
+  font-weight: 700;
+  color: #337ab7;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a {
+  color: #337ab7;
+}
+
+.panel-group {
+  margin: 10px 0;
+}
+
+.panel-group .panel {
+  margin-bottom: 0;
+  background: transparent;
+}
+
+.panel-body {
+  padding: 20px 10px 10px 10px;
+}
+
+.panel-heading {
+  padding: 8px 10px 16px 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel-default {
+  border-color: transparent;
+}
+
+.panel-default > .panel-heading {
+  color: #959595;
+  background-color: transparent;
+  border: none;
+}
+
+.panel-group .panel-heading + .panel-collapse > .panel-body, .panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 3px solid #88ad45;
+}
+
+
+/* ========================================================== */
+/* 			             12. MEDIA QUERIES                    */
+/* ========================================================== */
+
+@media (max-width: 767px) {
+
+  /* .banner {
+    padding-top: 200px;
+    padding-bottom:60px;
+  } */
+
+}
+
+@media (max-width: 375px) {
+
+  .banner h1 {
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .logo {
+    margin-left: 10px;
+  }
+
+}
+
+.fa-star {
+  color: #FABE00;
+  font-size: 20px;
+}
+
+.logo {
+  width: 175px;
+  height: 175px;
+  margin: auto;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.background-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}

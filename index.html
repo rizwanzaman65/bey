@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BEY</title>
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link href="CSS/bootstrap.min.css" rel="stylesheet">
+<link href="CSS/styleSurvey.css" rel="stylesheet">
+<style>
+    .banner {
+      background-image: url(bg.jpg);
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url("/images/down_arrow.svg") no-repeat;
+      background-size: 12px;
+      background-position: calc(100% - 10px) center;
+      background-repeat: no-repeat;
+      background-color: #efefef;
+    }
+
+    
+  </style>
+<script src="CSS/JS/1.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script src="CSS/JS/2.js"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+<script src="CSS/JS/3.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140927431-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-140927431-4', {
+    'custom_map': { 'dimension1': 'userId' }
+  });
+</script>
+<style>
+    body {
+      font-family: 'Open Sans', sans-serif !important;
+    }
+  </style>
+<link rel="shortcut icon" href="#&lt;ActiveStorage::Attached::One:0x00007f296c14f810&gt;>">
+
+<style>
+    .card {
+    border-radius: .5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: height 0.3s ease;
+    background-color: #efefef;
+    padding: 30px;
+    color: black;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+}
+
+#additionalDetails {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+</style>
+<style>
+     .star {
+            font-size: 2rem;
+            color: gold;
+            cursor: pointer;
+        }
+        .star.selected {
+            color: orange;
+        }
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .btn-primary {
+        background-color: black;
+        border: none;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+</style>
+</head>
+<body>
+
+
+<header class="header">
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<div class="logo">
+<img src="logo-removebg-preview (2).png" />
+</div>
+</div>
+</div>
+</nav>
+</header>
+<section class="banner">
+<div class="background-overlay">
+<div class="container main-content">
+<div class="row">
+<div class="col-md-6 col-lg-6 pt-5">
+<h1>Exclusive Offer for Current Customers: Enjoy a FREE Gift!</h1>
+<p>No Credit Card Required – No Shipping Fees – 100% FREE!</p>
+<p><small>Limit one free gift per household. Offer applies only to full-priced purchases. Proof of purchase from an authorized retailer may be needed. No additional purchase necessary. Please allow 1-2 weeks for delivery. This offer is not influenced by any feedback you provide, whether positive or negative. Valid only in the United States; void where prohibited. Available while supplies last. Offer subject to change or cancellation at any time.
+</small></p>
+</div>
+<div class="container">
+    <div class="col-md-6 col-lg-6 pt-lg-5" style="margin-top:20px;">
+        <!-- Step 1: Product Selection Card -->
+        <div class="card mb-4" id="step1Card" style="border-radius: .5rem; transition: all 0.3s ease;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Please fill out the form to claim your FREE bottle.</h5>
+                <p class="card-text text-center text-muted" style="color: black;">We'd love it if you choose to share your experience with us!</p>
+
+                <!-- Product Selection -->
+                <div class="form-group">
+                    <center><label for="productSelect" class="font-weight-bold"><h6><b>Which product did you purchase?*</b></h6></label></center>
+                    <select class="form-control" id="productSelect" required>
+                        <option selected disabled>Select a product...</option>
+                        <option value="energize">Energize</option>
+                        <option value="hydrate">Hydrate</option>
+                    </select>
+                </div>
+
+                <!-- Additional Details (Initially Hidden) -->
+                <div id="additionalDetails" style="display: none;">
+                    <!-- Product Image and Name -->
+                    <div class="text-center mt-3">
+                        <p class="text-muted" style="color: black;">You purchased...</p>
+                        <img src="" id="productImage" alt="Product Image" style="max-width: 100px;">
+                        <p class="font-weight-bold mt-2" id="productName" style="color: black;"></p>
+                    </div>
+
+                    <center>
+                    <!-- Purchase Location -->
+                    <div class="form-group mt-4">
+                        <label class="font-weight-bold"><h6>Where did you purchase <span id="productNameSmall"></span>?</h6></label>
+                        <div class="btn-group-toggle d-flex justify-content-between" data-toggle="buttons">
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="purchaseLocation" value="amazon" autocomplete="off"> 
+                                <img src="amazon-512.webp" alt="Amazon" style="max-width: 100px;">
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="purchaseLocation" value="amazonuk" autocomplete="off"> 
+                                <img src="newama-removebg-preview.png" alt="Amazon UK" style="max-width: 100px;">
+                            </label>
+                        </div>
+                    </div>
+                    </center>
+
+                    <!-- Amazon Order Number -->
+                    <div class="form-group mt-4">
+                        <label class="font-weight-bold"><h6>What is your Amazon Order Number containing <span id="productNameOrder"></span>?</h6></label>
+                        <button type="button" class="btn btn-info btn-block mb-2">Find Your Amazon Order Number</button>
+                        <input type="text" class="form-control" id="orderNumber" placeholder="Amazon Order Number" required>
+                        <small class="form-text text-muted">Use Test Order: 888-7567859-5242609</small>
+                    </div>
+
+                    <!-- Next Button -->
+                    <button type="button" class="btn btn-primary btn-block mt-4" id="nextStep1">Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Review Card (Initially Hidden) -->
+        <div class="card mb-4" id="step2Card" style="display: none; border-radius: .5rem; transition: all 0.3s ease;">
+            <div class="card-body">
+                <p class="text-center" style="margin-top: -10px;">Step 2 of 4</p>
+                <div class="text-center mt-3">
+                    <img src="" id="reviewProductImage" alt="Product Image" style="max-width: 100px;">
+                </div>
+                <br>
+                <center>
+                <h6 class="card-title text-center"> <h6>How was your experience with</h6> <span id="reviewProductName"></span>?</h6></center>
+                <div class="form-group text-center">
+                    <label for="rating" class="font-weight-bold">Overall rating *</label>
+                    <div id="rating" class="text-center">
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText" class="font-weight-bold">Add a written review *</label>
+                    <textarea class="form-control" id="reviewText" rows="3" placeholder="What did you like or dislike? How was your overall experience?" required></textarea>
+                </div>
+                <button type="button" class="btn btn-primary btn-block mt-4" id="submitReview">Next &rarr;</button>
+                <button type="button" class="btn btn-secondary btn-block mt-2" id="backToStep1">&larr; Back</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Copy & Paste Card (Initially Hidden) -->
+        <div class="card mb-4" id="step3Card" style="display: none; border-radius: .5rem; transition: all 0.3s ease;">
+            <div class="card-body">
+                <h5 class="card-title text-center">We're glad you're enjoying Energize!</h5>
+                <p class="card-text text-center text-muted" style="color: black;">Please consider leaving your honest, unbiased review on Amazon</p>
+                <!-- Step 1: Copy Text Below -->
+                <div class="form-group text-center">
+                    <label for="reviewTextCode"><h6>Step 1 - Copy Text Below</h6></label>
+                    <textarea class="form-control text-center" id="reviewTextCode" rows="3" readonly></textarea>
+                    <br><button class="btn btn-primary mt-2" onclick="copyReviewText()">Copy Text</button>
+                </div>
+                <!-- Step 2: Paste on Amazon -->
+                <div class="form-group text-center">
+                    <label for="pasteOnAmazon"><h6>Step 2 - Paste on Amazon</h6></label> <br><br>
+                    <button class="btn btn-primary mt-2" onclick="window.open('https://www.amazon.com/review/create-review', '_blank')">Paste on Amazon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for handling steps -->
+<script>
+    document.getElementById('productSelect').addEventListener('change', function() {
+        var selectedProduct = this.value;
+        var additionalDetails = document.getElementById('additionalDetails');
+        var productName = document.getElementById('productName');
+        var productNameSmall = document.getElementById('productNameSmall');
+        var productNameOrder = document.getElementById('productNameOrder');
+        var productImage = document.getElementById('productImage');
+        var reviewProductImage = document.getElementById('reviewProductImage');
+        var reviewProductName = document.getElementById('reviewProductName');
+
+        if (selectedProduct) {
+            additionalDetails.style.display = 'block';
+
+            if (selectedProduct === "energize") {
+                productName.innerText = 'Energize';
+                productNameSmall.innerText = 'Energize';
+                productNameOrder.innerText = 'Energize';
+                productImage.src = '1657036420554Energize.jpg';
+                reviewProductImage.src = '1657036420554Energize.jpg';
+                reviewProductName.innerText = 'Energize';
+            } else if (selectedProduct === "hydrate") {
+                productName.innerText = 'Hydrate';
+                productNameSmall.innerText = 'Hydrate';
+                productNameOrder.innerText = 'Hydrate';
+                productImage.src = '1612554471388Hydrate.jpg';  // Replace with actual image source
+                reviewProductImage.src = '1612554471388Hydrate.jpg';  // Replace with actual image source
+                reviewProductName.innerText = 'Hydrate';
+            }
+        } else {
+            additionalDetails.style.display = 'none';
+        }
+    });
+
+    document.getElementById('nextStep1').addEventListener('click', function() {
+        var selectedProduct = document.getElementById('productSelect').value;
+        var orderNumber = document.getElementById('orderNumber').value;
+
+        // Regular expression for validating Amazon Order Number format
+        var orderNumberPattern = /^\d{3}-\d{7}-\d{7}$/;
+
+        if (!selectedProduct) {
+            alert('Please select a product.');
+        } else if (!orderNumberPattern.test(orderNumber)) {
+            alert('Please enter a valid Amazon Order Number in the format 888-7567859-5242609.');
+        } else {
+            document.getElementById('step1Card').style.display = 'none';
+            document.getElementById('step2Card').style.display = 'block';
+            document.getElementById('reviewProductName').innerText = selectedProduct.charAt(0).toUpperCase() + selectedProduct.slice(1);
+        }
+    });
+
+    document.getElementById('backToStep1').addEventListener('click', function() {
+        document.getElementById('step2Card').style.display = 'none';
+        document.getElementById('step1Card').style.display = 'block';
+    });
+
+    // Handling star rating clicks
+    var stars = document.querySelectorAll('.star');
+    stars.forEach(function(star, index) {
+        star.addEventListener('click', function() {
+            stars.forEach(function(s, i) {
+                if (i <= index) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+
+            // Update the next button behavior based on rating
+            var submitReviewBtn = document.getElementById('submitReview');
+            if (index <= 2) { // 3 stars or less
+                submitReviewBtn.onclick = showThankYouPopup;
+            } else { // 4 or 5 stars
+                submitReviewBtn.onclick = function() {
+                    var reviewText = document.getElementById('reviewText').value;
+                    document.getElementById('reviewTextCode').value = reviewText;
+                    document.getElementById('step2Card').style.display = 'none';
+                    document.getElementById('step3Card').style.display = 'block';
+                };
+            }
+        });
+    });
+
+    // Function to show thank you popup and reset fields
+    function showThankYouPopup() {
+        alert("Thank you for your feedback!");
+        // Reset all fields
+        document.getElementById('productSelect').value = '';
+        document.getElementById('orderNumber').value = '';
+        document.getElementById('reviewText').value = '';
+        document.getElementById('reviewTextCode').value = '';
+        document.querySelectorAll('.star').forEach(function(star) {
+            star.classList.remove('selected');
+        });
+        document.getElementById('additionalDetails').style.display = 'none';
+        document.getElementById('productName').innerText = '';
+        document.getElementById('productNameSmall').innerText = '';
+        document.getElementById('productNameOrder').innerText = '';
+        document.getElementById('productImage').src = '';
+        // Go back to Step 1
+        document.getElementById('step2Card').style.display = 'none';
+        document.getElementById('step1Card').style.display = 'block';
+
+        // Refresh the page
+        location.reload();
+    }
+
+    function copyReviewText() {
+        var reviewText = document.getElementById("reviewTextCode");
+        reviewText.select();
+        document.execCommand("copy");
+        alert("Review text copied to clipboard!");
+    }
+</script>
+
+
+
+</div>
+</div>
+</div>
+</section>
+<section class="section-grey" style="padding: 90px 0 100px 0;">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h2 class="section-title">Get Your FREE Gift in 2 Simple Steps!</h2>
+</div>
+<div class="col-md-6">
+<div class="main-services">
+<img src="1.png" class="width-100" alt="pic">
+<h3>1.) Fill out the form above</h3>
+<p>Fill out the form using your order information</p>
+</div>
+</div>
+<div class="col-md-6">
+<div class="main-services">
+<img src="3.png" class="width-100" alt="pic">
+<h3>2.) Receive your FREE gift!</h3>
+<p>Upon survey completion, we will send you your free gift.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-grey" style="padding-bottom:100px;">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h2 class="section-title">Frequently Asked Questions</h2><br>
+<p>View some of the frequently asked questions about this site</p>
+</div>
+<div class="col-md-12 margin-top-10">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+<h3 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class>
+<i class="icon icon-rocket panel-icon"></i>Do I need to give you a credit card?
+</a>
+</h3>
+</div>
+<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style>
+<div class="panel-body">
+<p>No, we do not ask you for a credit card at any time.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingThree">
+<h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+<i class="icon icon-present-gift panel-icon"></i>How long does it take to fill everything out on this site?
+</a>
+</h4>
+</div>
+</div>
+<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+<div class="panel-body">
+<p>It typically takes users 1-3 minutes to fill out the necessary inputs to receive their free gift.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="footer" class="align-bottom">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<p>Copyright ©
+<script>document.write(new Date().getFullYear())</script>
+</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="CSS/JS/5.js"></script>
+<script type="text/javascript">
+    iFrameResize({ checkOrigin: false }, '#grEmbed')
+  </script>
+
+
+</body>
+</html>
+
